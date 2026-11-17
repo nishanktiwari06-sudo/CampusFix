@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusFix | Smart Campus Issue Management</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-building-columns"></i>
+        </div>
+
+        <div>
+            <h2>Campus<span>Fix</span></h2>
+            <small>Smart Campus Solutions</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <i class="fa-solid fa-circle-check"></i>
+            Making Campus Better Together
+        </div>
+
+        <h1>
+            Your Campus.
+            <br>
+            <span>Our Responsibility.</span>
+        </h1>
+
+        <p>
+            CampusFix makes it easy for students to report campus
+            problems and helps administrators resolve them faster.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="login.html" class="primary-btn" id="reportIssueBtn">
+                <i class="fa-solid fa-bullhorn"></i>
+                Report an Issue
+            </a>
+
+            <a href="#how-it-works" class="secondary-btn">
+                How It Works
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="hero-info">
+
+            <div class="info-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                    <strong>Easy Reporting</strong>
+                    <small>Report issues in seconds</small>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                    <strong>Quick Response</strong>
+                    <small>Track your complaint</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= HERO CARD ================= -->
+
+    <div class="hero-card">
+
+        <div class="card-top">
+
+            <div>
+                <span class="mini-title">Campus Overview</span>
+                <h3>Latest Campus Issues</h3>
+            </div>
+
+            <div class="status-dot">
+                <span></span> Live
+            </div>
+
+        </div>
+
+        <!-- Latest Complaints From Database -->
+
+        <div class="latest-complaints"
+             id="latestComplaints"
+             aria-live="polite">
+
+            <div class="issue-card">
+
+                <div class="issue-icon maintenance">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                </div>
+
+                <div class="issue-details">
+                    <h4>Loading latest issues...</h4>
+                    <p>Please wait</p>
+                </div>
+
+                <span class="pending">Loading</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dynamic Mini Statistics -->
+
+        <div class="card-footer">
+
+            <div class="mini-stat">
+                <strong id="heroTotalComplaints">—</strong>
+                <span>Total Issues</span>
+            </div>
+
+            <div class="mini-stat">
+                <strong id="heroResolutionRate">—</strong>
+                <span>Resolved</span>
+            </div>
+
+            <div class="mini-stat">
+                <strong id="heroPendingComplaints">—</strong>
+                <span>Pending</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATISTICS SECTION ================= -->
+
+<section class="stats">
+
+    <div class="stat-box">
+
+        <i class="fa-solid fa-users"></i>
+
+        <div>
+            <h2 id="totalStudentsStat">—</h2>
+            <p>Students</p>
+        </div>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <i class="fa-solid fa-file-circle-check"></i>
+
+        <div>
+            <h2 id="totalComplaintsStat">—</h2>
+            <p>Issues Reported</p>
+        </div>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <div>
+            <h2 id="resolvedComplaintsStat">—</h2>
+            <p>Issues Resolved</p>
+        </div>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <div>
+            <h2>24/7</h2>
+            <p>System Available</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="section-heading">
+
+        <span>ABOUT CAMPUSFIX</span>
+
+        <h2>
+            A Smarter Way to
+            <strong>Improve Your Campus</strong>
+        </h2>
+
+        <p>
+            CampusFix connects students and campus administration
+            through a simple and transparent issue reporting system.
+        </p>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>Speak Up</h3>
+
+            <p>
+                Students can easily report problems around campus
+                without complicated procedures.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+
+            <h3>Stay Updated</h3>
+
+            <p>
+                Track the progress of submitted complaints from
+                pending to resolved.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                <i class="fa-solid fa-people-arrows"></i>
+            </div>
+
+            <h3>Better Together</h3>
+
+            <p>
+                Students and administrators work together to create
+                a better campus environment.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <div class="section-heading">
+
+        <span>POWERFUL FEATURES</span>
+
+        <h2>
+            Everything You Need in
+            <strong>One Platform</strong>
+        </h2>
+
+        <p>
+            Designed to make campus issue management simple,
+            transparent and efficient.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+
+            <h3>Easy Complaint</h3>
+
+            <p>
+                Submit campus issues quickly with a simple
+                complaint form.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-image"></i>
+            </div>
+
+            <h3>Upload Evidence</h3>
+
+            <p>
+                Attach images to help administrators understand
+                the problem better.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3>Track Status</h3>
+
+            <p>
+                Check whether your complaint is pending,
+                in progress or resolved.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+
+            <h3>Admin Dashboard</h3>
+
+            <p>
+                Administrators can manage and organize all
+                campus complaints.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+
+            <h3>Smart Filtering</h3>
+
+            <p>
+                Quickly find complaints using categories,
+                priority and status.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <h3>Notifications</h3>
+
+            <p>
+                Get updates when the status of your complaint
+                changes.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-it-works" id="how-it-works">
+
+    <div class="section-heading">
+
+        <span>HOW IT WORKS</span>
+
+        <h2>
+            Report. Track.
+            <strong>Resolve.</strong>
+        </h2>
+
+        <p>
+            Getting a campus problem fixed takes only a few simple steps.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">01</div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h3>Create Account</h3>
+
+            <p>
+                Register as a student and access your CampusFix dashboard.
+            </p>
+
+        </div>
+
+
+        <div class="step-line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">02</div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-file-pen"></i>
+            </div>
+
+            <h3>Report Issue</h3>
+
+            <p>
+                Describe the problem, select its category and submit it.
+            </p>
+
+        </div>
+
+
+        <div class="step-line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">03</div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+
+            <h3>Track Progress</h3>
+
+            <p>
+                Follow your complaint and receive status updates.
+            </p>
+
+        </div>
+
+
+        <div class="step-line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">04</div>
+
+            <div class="step-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <h3>Problem Solved</h3>
+
+            <p>
+                The administration resolves the issue and closes the complaint.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="cta-content">
+
+        <span>MAKE YOUR CAMPUS BETTER</span>
+
+        <h2>
+            Found a Problem?
+            <br>
+            <strong>Let's Fix It.</strong>
+        </h2>
+
+        <p>
+            Your report can help make the campus safer,
+            cleaner and better for everyone.
+        </p>
+
+        <a href="login.html" class="primary-btn" id="reportIssueCtaBtn">
+            <i class="fa-solid fa-bullhorn"></i>
+            Report an Issue
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+        <div class="footer-about">
+
+            <div class="logo footer-logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+
+                <div>
+                    <h2>Campus<span>Fix</span></h2>
+                    <small>Smart Campus Solutions</small>
+                </div>
+
+            </div>
+
+            <p>
+                A smart platform designed to connect students
+                with campus administration and make issue
+                resolution easier.
+            </p>
+
+            <div class="socials">
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="#" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>For Students</h3>
+
+            <a href="login.html">Login</a>
+            <a href="register.html">Create Account</a>
+            <a href="login.html">Report Issue</a>
+            <a href="login.html">My Complaints</a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                support@campusfix.com
+            </p>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +91 90000 00000
+            </p>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                College Campus
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 CampusFix. All Rights Reserved.
+        </p>
+
+        <p>
+            Built with ❤️ for a Better Campus
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="index.js"></script>
+
+</body>
+</html>

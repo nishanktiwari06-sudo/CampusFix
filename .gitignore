@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Java / Maven
+**/target/
+**/*.class
+
+# Uploaded user photos
+backend/uploads/
+
+# Secrets
+**/.env
+**/.env.*
+!**/.env.example
+**/application-local.properties
+
+# Logs
+*.log

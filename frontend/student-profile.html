@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CampusFix</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="student-profile.css">
+    <link rel="stylesheet" href="student-appearance.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div>
+            <h2>Campus<span>Fix</span></h2>
+            <small>Student Portal</small>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <p class="menu-title">MENU</p>
+
+        <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-table-columns"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="complaint.html" class="sidebar-link">
+            <i class="fa-solid fa-file-circle-plus"></i>
+            <span>Report Issue</span>
+        </a>
+
+        <a href="my-complaints.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>My Complaints</span>
+        </a>
+
+        <p class="menu-title space-top">ACCOUNT</p>
+
+        <a href="student-profile.html" class="sidebar-link active">
+            <i class="fa-solid fa-user"></i>
+            <span>My Profile</span>
+        </a>
+
+        <a href="student-settings.html" class="sidebar-link">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="help-box">
+
+        <a href="login.html" class="logout-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
+
+</aside>
+
+<main class="dashboard-main">
+
+    <header class="dashboard-topbar">
+
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-title">
+            <h1>My Profile</h1>
+            <p>View and manage your student information</p>
+        </div>
+
+        <div class="topbar-actions">
+            <div class="user-profile">
+                <div class="user-avatar" id="studentAvatar">ST</div>
+                <div class="user-info">
+                    <strong id="studentName">Student</strong>
+                    <small>Student</small>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="student-profile-page">
+
+        <div class="profile-page-heading">
+            <div>
+                <span>ACCOUNT MANAGEMENT</span>
+                <h2>My Profile</h2>
+                <p>Manage your personal and academic information.</p>
+            </div>
+        </div>
+
+        <!-- PROFILE OVERVIEW -->
+        <section class="profile-card">
+
+            <div class="profile-cover"></div>
+
+            <div class="profile-overview">
+
+                <div class="profile-photo-wrapper">
+                    <div class="profile-photo" id="profilePhoto">
+                        ST
+                    </div>
+
+                    <label for="photoInput" class="photo-upload-btn"
+                           title="Change profile photo">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+
+                    <input type="file"
+                           id="photoInput"
+                           accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+                           hidden>
+                </div>
+
+                <div class="profile-overview-info">
+                    <h2 id="profileName">Student Name</h2>
+                    <p id="profileDepartment">Department</p>
+                    <small>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Registered Student
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="profile-photo-actions">
+                <button type="button" id="uploadPhotoBtn" class="photo-action-btn">
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Photo
+                </button>
+
+                <button type="button" id="removePhotoBtn" class="remove-photo-btn">
+                    <i class="fa-solid fa-trash"></i>
+                    Remove Photo
+                </button>
+
+                <p>JPG or PNG. Maximum file size: 5 MB.</p>
+            </div>
+
+        </section>
+
+        <!-- PERSONAL INFORMATION -->
+        <section class="profile-card profile-details-card">
+
+            <div class="profile-section-heading">
+                <div class="profile-heading-icon">
+                    <i class="fa-solid fa-user-pen"></i>
+                </div>
+
+                <div>
+                    <h3>Personal Information</h3>
+                    <p>Update your registered student details.</p>
+                </div>
+            </div>
+
+            <form id="profileForm">
+
+                <div class="profile-form-grid">
+
+                    <div class="profile-field">
+                        <label for="fullName">Full Name</label>
+                        <div class="profile-input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text"
+                                   id="fullName"
+                                   placeholder="Enter your full name"
+                                   maxlength="100"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="department">Department</label>
+                        <div class="profile-input-wrapper">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <input type="text"
+                                   id="department"
+                                   placeholder="Enter your department"
+                                   maxlength="100">
+                        </div>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="email">Email Address</label>
+                        <div class="profile-input-wrapper readonly-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email"
+                                   id="email"
+                                   readonly>
+                        </div>
+                        <small>Registered email cannot be changed.</small>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="rollNo">Roll Number</label>
+                        <div class="profile-input-wrapper readonly-field">
+                            <i class="fa-solid fa-id-card"></i>
+                            <input type="text"
+                                   id="rollNo"
+                                   readonly>
+                        </div>
+                        <small>Roll number cannot be changed.</small>
+                    </div>
+
+                </div>
+
+                <div class="profile-form-footer">
+
+                    <p id="profileMessage" role="status"></p>
+
+                    <button type="submit" class="profile-save-btn" id="saveProfileBtn">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <footer class="dashboard-footer">
+        <p>© 2026 CampusFix. All Rights Reserved.</p>
+        <span>Smart Campus Issue Management System</span>
+    </footer>
+
+</main>
+
+<script src="student-profile.js" defer></script>
+<script src="student-appearance.js"></script>
+
+</body>
+</html>

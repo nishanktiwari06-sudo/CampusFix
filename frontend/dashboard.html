@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CampusFix</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="student-appearance.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <div>
+                <h2>Campus<span>Fix</span></h2>
+                <small>Student Portal</small>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="menu-title">MENU</p>
+
+            <a href="dashboard.html" class="sidebar-link active">
+                <i class="fa-solid fa-grid-2"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="complaint.html" class="sidebar-link">
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span>Report Issue</span>
+            </a>
+
+            <a href="my-complaints.html" class="sidebar-link">
+                <i class="fa-solid fa-list-check"></i>
+                <span>My Complaints</span>
+            </a>
+
+            <p class="menu-title space-top">ACCOUNT</p>
+
+            <a href="student-profile.html" class="sidebar-link">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="student-settings.html" class="sidebar-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM - MATCHING COMPLAINT PAGE -->
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+                <a href="login.html" class="logout-link" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <button class="mobile-menu"
+                    id="menuBtn"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-controls="sidebar"
+                    aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="topbar-title">
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back,
+                    <strong id="studentName">Student</strong> 👋
+                </p>
+
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="notification-btn"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+
+                </button>
+
+                <!-- PROFILE SHORTCUT -->
+
+                <a href="student-profile.html"
+                   class="user-profile"
+                   aria-label="Open My Profile">
+
+                    <div class="user-avatar">ST</div>
+
+                    <div class="user-info">
+                        <strong>Student</strong>
+                        <small>Student</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right profile-arrow"></i>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <div class="dashboard-content">
+
+            <!-- WELCOME BANNER -->
+
+            <section class="welcome-banner">
+
+                <div>
+
+                    <span>SMART CAMPUS MANAGEMENT</span>
+
+                    <h2>Have a campus problem?</h2>
+
+                    <p>
+                        Report it and help us make your campus better.
+                    </p>
+
+                    <a href="complaint.html" class="banner-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Report New Issue
+                    </a>
+
+                </div>
+
+                <div class="banner-icon">
+                    <i class="fa-solid fa-building-circle-check"></i>
+                </div>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+
+            <section class="dashboard-stats">
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon blue">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Complaints</span>
+                        <h2 id="totalComplaints">0</h2>
+                        <small>All submitted issues</small>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <h2 id="pendingComplaints">0</h2>
+                        <small>Waiting for action</small>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon purple">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+
+                    <div>
+                        <span>In Progress</span>
+                        <h2 id="progressComplaints">0</h2>
+                        <small>Currently being fixed</small>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Resolved</span>
+                        <h2 id="resolvedComplaints">0</h2>
+                        <small>Successfully completed</small>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT COMPLAINTS -->
+
+            <section class="dashboard-section">
+
+                <div class="section-top">
+
+                    <div>
+                        <h2>Recent Complaints</h2>
+                        <p>Your latest reported campus issues</p>
+                    </div>
+
+                    <a href="my-complaints.html" class="view-all">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+                <div class="complaints-table-wrapper">
+
+                    <table class="complaints-table">
+
+                        <thead>
+                            <tr>
+                                <th>Complaint</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentComplaintsTable">
+
+                            <tr>
+                                <td colspan="5" class="loading-row">
+                                    Loading complaints...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- BOTTOM GRID -->
+
+            <div class="dashboard-bottom-grid">
+
+                <!-- QUICK ACTIONS -->
+
+                <section class="quick-links-card">
+
+                    <div class="section-top">
+
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Frequently used options</p>
+                        </div>
+
+                    </div>
+
+                    <div class="quick-links">
+
+                        <a href="complaint.html" class="quick-link">
+
+                            <div class="quick-link-icon blue">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+
+                            <div>
+                                <strong>Report New Issue</strong>
+                                <small>Submit a new complaint</small>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </a>
+
+
+                        <a href="my-complaints.html" class="quick-link">
+
+                            <div class="quick-link-icon purple">
+                                <i class="fa-solid fa-list"></i>
+                            </div>
+
+                            <div>
+                                <strong>My Complaints</strong>
+                                <small>View all your complaints</small>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </a>
+
+
+                        <a href="student-profile.html" class="quick-link">
+
+                            <div class="quick-link-icon green">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+
+                            <div>
+                                <strong>My Profile</strong>
+                                <small>Manage your account</small>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CAMPUS TIP -->
+
+                <section class="campus-tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <span>CAMPUSFIX TIP</span>
+
+                    <h2>
+                        Small Reports.
+                        <br>
+                        Big Improvements.
+                    </h2>
+
+                    <p>
+                        Always provide the exact location and a clear
+                        description when reporting an issue.
+                    </p>
+
+                    <a href="complaint.html">
+                        Report an Issue
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </section>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <p>© 2026 CampusFix. All Rights Reserved.</p>
+
+            <span>
+                Smart Campus Issue Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="dashboard.js"></script>
+    <script src="student-appearance.js"></script>
+
+</body>
+</html>

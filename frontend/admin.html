@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | CampusFix</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <div>
+                <h2>CampusFix</h2>
+                <span>Admin Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin.html" class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#complaints">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <span>Complaints</span>
+            </a>
+
+            <a href="#students">
+                <i class="fa-solid fa-users"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="#settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+                <div class="profile-avatar">AD</div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+
+            <button class="logout-btn" onclick="adminLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- TOPBAR -->
+        <header class="admin-topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage campus complaints and requests.</p>
+            </div>
+
+            <div class="admin-actions">
+
+                <button class="icon-btn"
+                        onclick="showNotifications()"
+                        title="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+
+                </button>
+
+                <div class="admin-mini-profile">
+                    <div class="profile-avatar">AD</div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Administrator</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD STATISTICS -->
+        <section class="admin-stats">
+
+            <div class="admin-stat-card">
+                <div class="stat-icon total">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <span>Total Complaints</span>
+                    <h2 id="totalComplaints">0</h2>
+                    <small>All submitted complaints</small>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="stat-icon pending">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Pending</span>
+                    <h2 id="pendingComplaints">0</h2>
+                    <small>Waiting for action</small>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="stat-icon progress">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <div>
+                    <span>In Progress</span>
+                    <h2 id="progressComplaints">0</h2>
+                    <small>Currently being handled</small>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="stat-icon resolved">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <span>Resolved</span>
+                    <h2 id="resolvedComplaints">0</h2>
+                    <small>Successfully completed</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- REGISTERED STUDENTS SECTION -->
+        <section class="complaints-section students-section" id="students">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>
+                        <i class="fa-solid fa-users"></i>
+                        Registered Students
+                    </h2>
+
+                    <p>View students registered on CampusFix.</p>
+                </div>
+
+                <button class="export-btn"
+                        type="button"
+                        id="refreshStudents">
+
+                    <i class="fa-solid fa-rotate"></i>
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+            <!-- STUDENTS STATISTICS -->
+            <div class="admin-stats students-stats">
+
+                <div class="admin-stat-card">
+
+                    <div class="stat-icon total">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Registered Students</span>
+                        <h2 id="totalStudents">0</h2>
+                        <small>All registered accounts</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STUDENT SEARCH AND FILTER -->
+            <div class="complaint-tools">
+
+                <div class="admin-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search name, roll number or email..."
+                        autocomplete="off">
+
+                </div>
+
+                <select id="studentDepartmentFilter"
+                        aria-label="Filter by department">
+
+                    <option value="all">All Departments</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- STUDENTS TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Roll Number</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentsTable">
+
+                        <tr>
+                            <td colspan="6">
+                                Students will appear here after loading.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="studentsMessage"
+               role="status"
+               aria-live="polite"></p>
+
+        </section>
+
+
+        <!-- COMPLAINTS SECTION -->
+        <section class="complaints-section" id="complaints">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>All Complaints</h2>
+                    <p>Review and manage student complaints.</p>
+                </div>
+
+                <button class="export-btn" onclick="exportComplaints()">
+                    <i class="fa-solid fa-download"></i>
+                    Export
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="complaint-tools">
+
+                <div class="admin-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search complaint, student or ID...">
+
+                </div>
+
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+
+                <select id="priorityFilter">
+                    <option value="all">All Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+
+            </div>
+
+
+            <!-- COMPLAINT TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Student</th>
+                            <th>Issue</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="complaintsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- SETTINGS SECTION -->
+        <section class="settings-section" id="settings">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </h2>
+
+                    <p>Manage your admin account and preferences.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ADMIN PROFILE -->
+            <div class="settings-card">
+
+                <h3>
+                    <i class="fa-solid fa-user"></i>
+                    Admin Profile
+                </h3>
+
+                <div class="settings-profile">
+
+                    <div class="profile-avatar">AD</div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <p>Administrator</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTIFICATION SETTINGS -->
+            <div class="settings-card">
+
+                <h3>
+                    <i class="fa-solid fa-bell"></i>
+                    Notification Settings
+                </h3>
+
+                <label class="notification-setting">
+
+                    <span>
+                        <strong>Enable Admin Notifications</strong>
+                        <p>Receive alerts about pending complaints.</p>
+                    </span>
+
+                    <input
+                        type="checkbox"
+                        id="adminNotifications"
+                        checked>
+
+                </label>
+
+            </div>
+
+
+            <!-- APPEARANCE SETTINGS -->
+            <div class="settings-card appearance-card">
+
+                <h3>
+                    <i class="fa-solid fa-palette"></i>
+                    Appearance
+                </h3>
+
+                <p class="appearance-description">
+                    Customize the look and feel of your CampusFix dashboard.
+                </p>
+
+
+                <!-- LIGHT / DARK MODE -->
+                <div class="appearance-option">
+
+                    <div class="appearance-info">
+
+                        <strong>
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                            Display Mode
+                        </strong>
+
+                        <p>Choose light or dark appearance.</p>
+
+                    </div>
+
+                    <select id="themeMode">
+                        <option value="light">Light Mode</option>
+                        <option value="dark">Dark Mode</option>
+                    </select>
+
+                </div>
+
+
+                <div class="appearance-divider"></div>
+
+
+                <!-- LAYOUT MODE -->
+                <div class="appearance-option">
+
+                    <div class="appearance-info">
+
+                        <strong>
+                            <i class="fa-solid fa-table-cells"></i>
+                            Dashboard Layout
+                        </strong>
+
+                        <p>Choose your preferred dashboard spacing.</p>
+
+                    </div>
+
+                    <select id="layoutMode">
+                        <option value="comfortable">Comfortable</option>
+                        <option value="compact">Compact</option>
+                    </select>
+
+                </div>
+
+
+                <div class="appearance-divider"></div>
+
+
+                <!-- THEME COLOR -->
+                <div class="theme-color-section">
+
+                    <div class="appearance-info">
+
+                        <strong>
+                            <i class="fa-solid fa-brush"></i>
+                            Theme Color
+                        </strong>
+
+                        <p>Select your preferred accent color.</p>
+
+                    </div>
+
+                    <div class="theme-color-options">
+
+                        <button
+                            type="button"
+                            class="theme-color blue"
+                            data-color="blue"
+                            aria-label="Blue theme"
+                            aria-pressed="false"
+                            title="Blue">
+                        </button>
+
+                        <button
+                            type="button"
+                            class="theme-color purple"
+                            data-color="purple"
+                            aria-label="Purple theme"
+                            aria-pressed="false"
+                            title="Purple">
+                        </button>
+
+                        <button
+                            type="button"
+                            class="theme-color green"
+                            data-color="green"
+                            aria-label="Green theme"
+                            aria-pressed="false"
+                            title="Green">
+                        </button>
+
+                        <button
+                            type="button"
+                            class="theme-color orange"
+                            data-color="orange"
+                            aria-label="Orange theme"
+                            aria-pressed="false"
+                            title="Orange">
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="appearance-divider"></div>
+
+
+                <!-- APPEARANCE FOOTER -->
+                <div class="appearance-footer">
+
+                    <span id="appearanceMessage">
+                        Your preferences are saved automatically.
+                    </span>
+
+                    <button
+                        type="button"
+                        id="resetAppearance"
+                        class="reset-appearance-btn">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Reset Appearance
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- COMPLAINT DETAILS MODAL -->
+<div class="modal" id="complaintModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal()"
+            aria-label="Close modal">
+
+            &times;
+
+        </button>
+
+        <h2>Complaint Details</h2>
+
+        <div id="complaintDetails"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN JAVASCRIPT -->
+<script src="admin.js"></script>
+
+</body>
+</html>

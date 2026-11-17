@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | CampusFix</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="student-settings.css">
+    <link rel="stylesheet" href="student-appearance.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div>
+            <h2>Campus<span>Fix</span></h2>
+            <small>Student Portal</small>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <p class="menu-title">MENU</p>
+
+        <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-table-columns"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="complaint.html" class="sidebar-link">
+            <i class="fa-solid fa-file-circle-plus"></i>
+            <span>Report Issue</span>
+        </a>
+
+        <a href="my-complaints.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>My Complaints</span>
+        </a>
+
+        <p class="menu-title space-top">ACCOUNT</p>
+
+        <a href="student-profile.html" class="sidebar-link">
+            <i class="fa-solid fa-user"></i>
+            <span>My Profile</span>
+        </a>
+
+        <a href="student-settings.html" class="sidebar-link active">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="help-box">
+
+        <a href="login.html" class="logout-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
+
+</aside>
+
+<main class="dashboard-main">
+
+    <!-- TOPBAR -->
+    <header class="dashboard-topbar">
+
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-title">
+            <h1>Settings</h1>
+            <p>Manage your account and preferences</p>
+        </div>
+
+        <div class="topbar-actions">
+            <div class="user-profile">
+                <div class="user-avatar" id="studentAvatar">ST</div>
+                <div class="user-info">
+                    <strong id="studentName">Student</strong>
+                    <small>Student</small>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="student-settings-page">
+
+        <!-- PAGE HEADING -->
+        <div class="settings-page-heading">
+            <div>
+                <span>ACCOUNT MANAGEMENT</span>
+                <h2>Account Settings</h2>
+                <p>Customize your CampusFix account and dashboard experience.</p>
+            </div>
+        </div>
+
+        <!-- PROFILE CARD -->
+        <section class="settings-card">
+
+            <div class="settings-card-heading">
+                <div class="settings-heading-icon blue-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h3>Student Profile</h3>
+                    <p>Your registered account information</p>
+                </div>
+            </div>
+
+            <div class="settings-profile">
+                <div class="settings-avatar" id="profileAvatar">ST</div>
+                <div>
+                    <strong id="profileName">Student Name</strong>
+                    <p>Registered Student</p>
+                    <small id="profileEmail">student@example.com</small>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CHANGE PASSWORD -->
+        <section class="settings-card">
+
+            <div class="settings-card-heading">
+                <div class="settings-heading-icon purple-icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                    <h3>Change Password</h3>
+                    <p>Update your account password securely</p>
+                </div>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <div class="settings-form-grid">
+
+                    <div class="settings-field">
+                        <label for="currentPassword">Current Password</label>
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter current password"
+                            autocomplete="current-password"
+                            required>
+                    </div>
+
+                    <div class="settings-field">
+                        <label for="newPassword">New Password</label>
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter new password"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required>
+                    </div>
+
+                    <div class="settings-field">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm new password"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required>
+                    </div>
+
+                </div>
+
+                <p class="password-hint">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Your new password must contain at least 8 characters.
+                </p>
+
+                <button type="submit" class="settings-primary-btn">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Update Password
+                </button>
+
+                <p id="passwordMessage" class="settings-message" role="status"></p>
+
+            </form>
+
+        </section>
+
+        <!-- NOTIFICATION SETTINGS -->
+        <section class="settings-card">
+
+            <div class="settings-card-heading">
+                <div class="settings-heading-icon orange-icon">
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <div>
+                    <h3>Notification Settings</h3>
+                    <p>Manage your complaint notification preferences</p>
+                </div>
+            </div>
+
+            <label class="notification-setting">
+                <span>
+                    <strong>Complaint Status Updates</strong>
+                    <p>Receive updates when your complaint status changes.</p>
+                </span>
+                <input type="checkbox" id="statusNotifications" checked>
+            </label>
+
+            <div class="settings-divider"></div>
+
+            <label class="notification-setting">
+                <span>
+                    <strong>Complaint Resolution Alerts</strong>
+                    <p>Get notified when your complaint is resolved.</p>
+                </span>
+                <input type="checkbox" id="resolutionNotifications" checked>
+            </label>
+
+            <div class="settings-divider"></div>
+
+            <label class="notification-setting">
+                <span>
+                    <strong>General Notifications</strong>
+                    <p>Receive important CampusFix announcements.</p>
+                </span>
+                <input type="checkbox" id="generalNotifications" checked>
+            </label>
+
+            <p id="notificationMessage" class="settings-message" role="status"></p>
+
+        </section>
+
+        <!-- APPEARANCE SETTINGS -->
+        <section class="settings-card appearance-card">
+
+            <div class="settings-card-heading">
+                <div class="settings-heading-icon green-icon">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <div>
+                    <h3>Appearance</h3>
+                    <p>Customize the look and feel of your dashboard</p>
+                </div>
+            </div>
+
+            <!-- DISPLAY MODE -->
+            <div class="appearance-option">
+                <div class="appearance-info">
+                    <strong>
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        Display Mode
+                    </strong>
+                    <p>Choose light or dark appearance.</p>
+                </div>
+
+                <select id="themeMode">
+                    <option value="light">Light Mode</option>
+                    <option value="dark">Dark Mode</option>
+                </select>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <!-- LAYOUT -->
+            <div class="appearance-option">
+                <div class="appearance-info">
+                    <strong>
+                        <i class="fa-solid fa-table-cells"></i>
+                        Dashboard Layout
+                    </strong>
+                    <p>Choose your preferred dashboard spacing.</p>
+                </div>
+
+                <select id="layoutMode">
+                    <option value="comfortable">Comfortable</option>
+                    <option value="compact">Compact</option>
+                </select>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <!-- THEME COLOR -->
+            <div class="theme-color-section">
+                <div class="appearance-info">
+                    <strong>
+                        <i class="fa-solid fa-brush"></i>
+                        Theme Color
+                    </strong>
+                    <p>Select your preferred accent color.</p>
+                </div>
+
+                <div class="theme-color-options">
+
+                    <button type="button"
+                        class="theme-color blue"
+                        data-color="blue"
+                        aria-label="Blue theme"
+                        title="Blue"></button>
+
+                    <button type="button"
+                        class="theme-color purple"
+                        data-color="purple"
+                        aria-label="Purple theme"
+                        title="Purple"></button>
+
+                    <button type="button"
+                        class="theme-color green"
+                        data-color="green"
+                        aria-label="Green theme"
+                        title="Green"></button>
+
+                    <button type="button"
+                        class="theme-color orange"
+                        data-color="orange"
+                        aria-label="Orange theme"
+                        title="Orange"></button>
+
+                </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="appearance-footer">
+                <span id="appearanceMessage">
+                    Preferences are saved automatically.
+                </span>
+
+                <button type="button" id="resetAppearance" class="reset-appearance-btn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Reset Appearance
+                </button>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="dashboard-footer">
+        <p>© 2026 CampusFix. All Rights Reserved.</p>
+        <span>Smart Campus Issue Management System</span>
+    </footer>
+
+</main>
+
+<script src="student-settings.js" defer></script>
+<script src="student-appearance.js"></script>
+
+</body>
+</html>

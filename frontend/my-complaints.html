@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CampusFix Student Portal - Track your reported campus complaints.">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>My Complaints | CampusFix</title>
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="complaint.css">
+    <link rel="stylesheet" href="my-complaints.css">
+    <link rel="stylesheet" href="student-appearance.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- LOGIN CHECK -->
+    <script>
+        const studentEmail = localStorage.getItem("studentEmail");
+
+        if (!studentEmail || !studentEmail.trim()) {
+            window.location.replace("login.html");
+        }
+    </script>
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <div>
+                <h2>Campus<span>Fix</span></h2>
+                <small>Student Portal</small>
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <p class="menu-title">MENU</p>
+
+            <a href="dashboard.html" class="sidebar-link">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="complaint.html" class="sidebar-link">
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span>Report Issue</span>
+            </a>
+
+            <a href="my-complaints.html" class="sidebar-link active">
+                <i class="fa-solid fa-list-check"></i>
+                <span>My Complaints</span>
+            </a>
+
+
+            <p class="menu-title space-top">ACCOUNT</p>
+
+            <!-- FIXED MY PROFILE LINK -->
+
+            <a href="student-profile.html" class="sidebar-link">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <!-- SETTINGS -->
+
+            <a href="student-settings.html" class="sidebar-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+            <a href="login.html" class="logout-link" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <button
+                type="button"
+                class="mobile-menu"
+                id="menuBtn"
+                aria-label="Open navigation menu"
+                aria-controls="sidebar"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="topbar-title">
+
+                <h1>My Complaints</h1>
+
+                <p>Track all your reported issues</p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar" id="loggedInStudentAvatar">
+                        NT
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="loggedInStudentName">
+                            Student Name
+                        </strong>
+
+                        <small>Student</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= COMPLAINTS CONTENT ================= -->
+
+        <div class="complaints-page">
+
+            <!-- PAGE HEADER -->
+
+            <div class="complaints-header">
+
+                <div>
+
+                    <span>COMPLAINT MANAGEMENT</span>
+
+                    <h2>Your Reported Issues</h2>
+
+                    <p>
+                        View and track the progress of every complaint
+                        submitted by you.
+                    </p>
+
+                </div>
+
+                <a href="complaint.html" class="new-complaint-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+                    New Complaint
+
+                </a>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+
+            <div class="complaint-summary">
+
+                <!-- TOTAL -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div>
+                        <span>Total</span>
+                        <h3 id="myTotalComplaints">0</h3>
+                    </div>
+
+                </div>
+
+
+                <!-- PENDING -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <h3 id="myPendingComplaints">0</h3>
+                    </div>
+
+                </div>
+
+
+                <!-- IN PROGRESS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+
+                    <div>
+                        <span>In Progress</span>
+                        <h3 id="myProgressComplaints">0</h3>
+                    </div>
+
+                </div>
+
+
+                <!-- RESOLVED -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Resolved</span>
+                        <h3 id="myResolvedComplaints">0</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= COMPLAINT LIST ================= -->
+
+            <section class="complaints-container">
+
+                <!-- SEARCH AND FILTERS -->
+
+                <div class="complaints-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search complaints..."
+                            aria-label="Search complaints"
+                        >
+
+                    </div>
+
+
+                    <div class="filter-buttons">
+
+                        <button
+                            type="button"
+                            class="filter-btn active"
+                            data-filter="all"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filter-btn"
+                            data-filter="pending"
+                        >
+                            Pending
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filter-btn"
+                            data-filter="progress"
+                        >
+                            In Progress
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filter-btn"
+                            data-filter="resolved"
+                        >
+                            Resolved
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DYNAMIC COMPLAINT CARDS -->
+
+                <div class="complaints-list" id="complaintsList">
+
+                    <p class="loading-message">
+                        Loading complaints...
+                    </p>
+
+                </div>
+
+
+                <!-- NO RESULTS -->
+
+                <div class="no-results" id="noResults">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <h3>No complaints found</h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 CampusFix. All Rights Reserved.
+            </p>
+
+            <span>
+                Smart Campus Issue Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ================= COMPLAINT DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="detailsModal">
+
+        <div class="complaint-modal">
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div class="modal-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+
+                    <span>COMPLAINT DETAILS</span>
+
+                    <h2 id="modalTitle">Complaint Title</h2>
+
+                    <p id="modalId">Complaint ID: #0</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="modal-status-row">
+
+                <span class="status pending-status" id="modalStatus">
+                    Pending
+                </span>
+
+                <span class="modal-date" id="modalDate">
+                    Submitted: -
+                </span>
+
+            </div>
+
+
+            <!-- COMPLAINT INFORMATION -->
+
+            <div class="modal-details">
+
+                <div>
+                    <span>Category</span>
+                    <strong id="modalCategory">-</strong>
+                </div>
+
+                <div>
+                    <span>Location</span>
+                    <strong id="modalLocation">-</strong>
+                </div>
+
+                <div>
+                    <span>Priority</span>
+                    <strong id="modalPriority">-</strong>
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="modal-description">
+
+                <span>Description</span>
+
+                <p id="modalDescription">-</p>
+
+            </div>
+
+
+            <!-- THREE STAGE TIMELINE -->
+
+            <div class="status-timeline">
+
+                <div class="timeline-item" id="stagePending">
+
+                    <div class="timeline-dot">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <strong>Pending</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line" id="linePending"></div>
+
+
+                <div class="timeline-item" id="stageProgress">
+
+                    <div class="timeline-dot">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+
+                    <div>
+                        <strong>In Process</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line" id="lineProgress"></div>
+
+
+                <div class="timeline-item" id="stageResolved">
+
+                    <div class="timeline-dot">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <strong>Resolved</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="my-complaints.js" defer></script>
+    <script src="student-appearance.js"></script>
+
+    <script>
+        // LOGOUT
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("studentId");
+                localStorage.removeItem("studentName");
+                localStorage.removeItem("studentEmail");
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | CampusFix</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="auth-body">
+
+    <main class="auth-container">
+
+        <!-- LEFT SIDE -->
+        <section class="auth-info">
+
+            <a href="index.html" class="auth-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+
+                <div>
+                    <h2>Campus<span>Fix</span></h2>
+                    <small>Smart Campus Solutions</small>
+                </div>
+            </a>
+
+            <div class="auth-info-content">
+
+                <span class="auth-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Secure Campus Platform
+                </span>
+
+                <h1>
+                    Welcome Back to
+                    <span>CampusFix</span>
+                </h1>
+
+                <p>
+                    Login to report campus issues, track your complaints
+                    and stay updated with their progress.
+                </p>
+
+                <div class="auth-points">
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Report campus issues easily</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Track complaint status</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Stay connected with administration</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="auth-form-section">
+
+            <div class="auth-form-card">
+
+                <div class="form-heading">
+
+                    <div class="mobile-logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                    </div>
+
+                    <h2>Login to your account</h2>
+
+                    <p>
+                        Enter your details to continue
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+
+                        <div class="label-row">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#" id="forgotPasswordLink">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REMEMBER -->
+                    <div class="remember-row">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                            >
+
+                            <span>Remember me</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        <span>Login</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+
+                    <!-- MESSAGE -->
+                    <div
+                        id="loginMessage"
+                        class="form-message"
+                    ></div>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <div class="register-text">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create Account
+                    </a>
+
+                </div>
+
+
+                <a href="index.html" class="back-home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================
+         FORGOT PASSWORD MODAL
+    ================================== -->
+
+    <div id="forgotPasswordModal" class="cf-modal" aria-hidden="true">
+
+        <div class="cf-modal-card"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="forgotTitle">
+
+            <button
+                type="button"
+                class="cf-modal-close"
+                id="closeForgotModal"
+                aria-label="Close"
+            >
+                &times;
+            </button>
+
+            <h2 id="forgotTitle">
+                Reset your password
+            </h2>
+
+            <p class="cf-modal-subtitle">
+                Enter your registered email to receive a 6-digit OTP.
+            </p>
+
+
+            <!-- SEND OTP FORM -->
+            <form id="sendOtpForm">
+
+                <label for="forgotEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="forgotEmail"
+                    placeholder="Enter your registered email"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="cf-modal-submit"
+                    id="sendOtpButton"
+                >
+                    Send OTP
+                </button>
+
+            </form>
+
+
+            <!-- RESET PASSWORD FORM -->
+            <form id="resetPasswordForm" class="cf-hidden">
+
+                <label for="resetOtp">
+                    6-digit OTP
+                </label>
+
+                <input
+                    type="text"
+                    id="resetOtp"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    maxlength="6"
+                    pattern="[0-9]{6}"
+                    placeholder="Enter OTP"
+                    required
+                >
+
+
+                <label for="newPassword">
+                    New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="72"
+                    placeholder="Enter new password"
+                    required
+                >
+
+
+                <label for="confirmNewPassword">
+                    Confirm New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmNewPassword"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="72"
+                    placeholder="Confirm new password"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    class="cf-modal-submit"
+                    id="resetPasswordButton"
+                >
+                    Reset Password
+                </button>
+
+            </form>
+
+
+            <!-- FORGOT PASSWORD MESSAGE -->
+            <div
+                id="forgotPasswordMessage"
+                class="cf-modal-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         FORGOT PASSWORD CSS
+    ================================== -->
+
+    <style>
+
+        .cf-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            padding: 20px;
+            background: rgba(15, 23, 42, .62);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cf-modal.cf-open {
+            display: flex;
+        }
+
+        .cf-modal-card {
+            position: relative;
+            width: min(100%, 430px);
+            padding: 30px;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,.22);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cf-modal-card h2 {
+            margin: 0 30px 8px 0;
+            color: #172554;
+            font-size: 23px;
+        }
+
+        .cf-modal-subtitle {
+            margin: 0 0 22px;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .cf-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            border: 0;
+            background: transparent;
+            color: #64748b;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .cf-modal-card label {
+            display: block;
+            margin: 13px 0 7px;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .cf-modal-card input {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 45px;
+            padding: 11px 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            outline: none;
+            font: inherit;
+            font-size: 14px;
+        }
+
+        .cf-modal-card input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+        }
+
+        .cf-modal-submit {
+            width: 100%;
+            min-height: 46px;
+            margin-top: 18px;
+            border: 0;
+            border-radius: 9px;
+            background: #2563eb;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .cf-modal-submit:disabled {
+            opacity: .65;
+            cursor: not-allowed;
+        }
+
+        .cf-hidden {
+            display: none;
+        }
+
+        .cf-modal-message {
+            min-height: 20px;
+            margin-top: 14px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .cf-modal-message.success {
+            color: #15803d;
+        }
+
+        .cf-modal-message.error {
+            color: #dc2626;
+        }
+
+        @media (max-width: 480px) {
+            .cf-modal-card {
+                padding: 24px 20px;
+            }
+        }
+
+    </style>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+    /* ===============================
+       PASSWORD SHOW / HIDE
+    =============================== */
+
+    const password = document.getElementById("password");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", () => {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            togglePassword.innerHTML =
+                '<i class="fa-regular fa-eye-slash"></i>';
+
+        } else {
+
+            password.type = "password";
+
+            togglePassword.innerHTML =
+                '<i class="fa-regular fa-eye"></i>';
+        }
+
+    });
+
+
+    /* ===============================
+       LOGIN FORM
+    =============================== */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+    const loginButton =
+        loginForm.querySelector('button[type="submit"]');
+
+
+    loginForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const passwordValue = password.value;
+
+        if (!email || !passwordValue) {
+
+            loginMessage.textContent =
+                "Please fill in all fields.";
+
+            loginMessage.className =
+                "form-message error";
+
+            return;
+        }
+
+        const loginData = {
+            email: email,
+            password: passwordValue
+        };
+
+        loginButton.disabled = true;
+
+        loginButton.innerHTML =
+            '<span>Please wait...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+
+        loginMessage.textContent = "";
+
+        loginMessage.className = "form-message";
+
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:8080/api/students/login",
+                {
+                    method: "POST",
+                    credentials: "include",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(loginData)
+                }
+            );
+
+
+            const responseText = await response.text();
+
+            let result;
+
+            try {
+                result = JSON.parse(responseText);
+            } catch {
+                result = responseText;
+            }
+
+            console.log("LOGIN RESPONSE:", result);
+
+
+            // WRONG EMAIL OR PASSWORD
+            if (!response.ok) {
+
+                let errorMessage;
+
+                if (typeof result === "string") {
+                    errorMessage = result;
+                } else {
+                    errorMessage =
+                        result.message || "Invalid email or password";
+                }
+
+                loginMessage.textContent = errorMessage;
+
+                loginMessage.className =
+                    "form-message error";
+
+                return;
+            }
+
+
+            // LOGIN SUCCESSFUL
+            if (!result || typeof result !== "object" || !result.id) {
+
+                loginMessage.textContent =
+                    "Invalid response received from server.";
+
+                loginMessage.className =
+                    "form-message error";
+
+                return;
+            }
+
+
+            localStorage.setItem("studentId", result.id);
+            localStorage.setItem("studentName", result.fullName);
+            localStorage.setItem("studentEmail", result.email);
+
+
+            loginMessage.textContent =
+                "Login successful! Redirecting...";
+
+            loginMessage.className =
+                "form-message success";
+
+
+            setTimeout(() => {
+
+                if (result.role === "ADMIN") {
+                    window.location.href = "admin.html";
+                } else {
+                    window.location.href = "dashboard.html";
+                }
+
+            }, 800);
+
+
+        } catch (error) {
+
+            console.error("Login error:", error);
+
+            loginMessage.textContent =
+                "Backend server se connection nahi ho pa raha.";
+
+            loginMessage.className =
+                "form-message error";
+
+        } finally {
+
+            loginButton.disabled = false;
+
+            loginButton.innerHTML =
+                '<span>Login</span> <i class="fa-solid fa-arrow-right"></i>';
+        }
+
+    });
+
+
+    /* ===============================
+       FORGOT PASSWORD
+    =============================== */
+
+    const forgotPasswordLink =
+        document.getElementById("forgotPasswordLink");
+
+    const forgotPasswordModal =
+        document.getElementById("forgotPasswordModal");
+
+    const closeForgotModal =
+        document.getElementById("closeForgotModal");
+
+    const sendOtpForm =
+        document.getElementById("sendOtpForm");
+
+    const resetPasswordForm =
+        document.getElementById("resetPasswordForm");
+
+    const forgotPasswordMessage =
+        document.getElementById("forgotPasswordMessage");
+
+    const sendOtpButton =
+        document.getElementById("sendOtpButton");
+
+    const resetPasswordButton =
+        document.getElementById("resetPasswordButton");
+
+
+    // SHOW MESSAGE
+    function showForgotMessage(message, type) {
+
+        forgotPasswordMessage.textContent = message;
+
+        forgotPasswordMessage.className =
+            "cf-modal-message " + type;
+    }
+
+
+    // OPEN MODAL
+    function openForgotPasswordModal(event) {
+
+        event.preventDefault();
+
+        forgotPasswordModal.classList.add("cf-open");
+
+        forgotPasswordModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.getElementById("forgotEmail").value =
+            document.getElementById("email").value.trim();
+
+        document.getElementById("forgotEmail").focus();
+    }
+
+
+    // CLOSE MODAL
+    function closeForgotPasswordModal() {
+
+        forgotPasswordModal.classList.remove("cf-open");
+
+        forgotPasswordModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+    }
+
+
+    forgotPasswordLink.addEventListener(
+        "click",
+        openForgotPasswordModal
+    );
+
+    closeForgotModal.addEventListener(
+        "click",
+        closeForgotPasswordModal
+    );
+
+
+    // CLOSE ON BACKGROUND CLICK
+    forgotPasswordModal.addEventListener("click", (event) => {
+
+        if (event.target === forgotPasswordModal) {
+            closeForgotPasswordModal();
+        }
+
+    });
+
+
+    // CLOSE WITH ESCAPE KEY
+    document.addEventListener("keydown", (event) => {
+
+        if (
+            event.key === "Escape" &&
+            forgotPasswordModal.classList.contains("cf-open")
+        ) {
+            closeForgotPasswordModal();
+        }
+
+    });
+
+
+    /* ===============================
+       SEND OTP
+    =============================== */
+
+    sendOtpForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("forgotEmail").value.trim();
+
+        if (!email) {
+
+            showForgotMessage(
+                "Please enter your registered email.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        sendOtpButton.disabled = true;
+
+        sendOtpButton.textContent = "Sending OTP...";
+
+        showForgotMessage("", "");
+
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:8080/api/students/forgot-password/send-otp",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({ email })
+                }
+            );
+
+
+            const responseText = await response.text();
+
+            let result;
+
+            try {
+                result = JSON.parse(responseText);
+            } catch {
+                result = { message: responseText };
+            }
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Unable to send OTP. Please try again."
+                );
+            }
+
+
+            showForgotMessage(
+                result.message ||
+                "If this email is registered, an OTP will be sent.",
+                "success"
+            );
+
+
+            // Show OTP verification form
+            resetPasswordForm.classList.remove("cf-hidden");
+
+            document.getElementById("resetOtp").focus();
+
+
+        } catch (error) {
+
+            console.error("Send OTP error:", error);
+
+            showForgotMessage(
+                error.message ||
+                "Could not connect to the server.",
+                "error"
+            );
+
+        } finally {
+
+            sendOtpButton.disabled = false;
+
+            sendOtpButton.textContent = "Send OTP";
+        }
+
+    });
+
+
+    /* ===============================
+       VERIFY OTP AND RESET PASSWORD
+    =============================== */
+
+    resetPasswordForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("forgotEmail").value.trim();
+
+        const otp =
+            document.getElementById("resetOtp").value.trim();
+
+        const newPassword =
+            document.getElementById("newPassword").value;
+
+        const confirmNewPassword =
+            document.getElementById("confirmNewPassword").value;
+
+
+        // OTP VALIDATION
+        if (!/^\d{6}$/.test(otp)) {
+
+            showForgotMessage(
+                "Please enter the 6-digit OTP.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // PASSWORD LENGTH VALIDATION
+        if (newPassword.length < 8 || newPassword.length > 72) {
+
+            showForgotMessage(
+                "Password must be between 8 and 72 characters.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // CONFIRM PASSWORD VALIDATION
+        if (newPassword !== confirmNewPassword) {
+
+            showForgotMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        resetPasswordButton.disabled = true;
+
+        resetPasswordButton.textContent = "Resetting...";
+
+        showForgotMessage("", "");
+
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:8080/api/students/forgot-password/reset",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email,
+                        otp,
+                        newPassword
+                    })
+                }
+            );
+
+
+            const responseText = await response.text();
+
+            let result;
+
+            try {
+                result = JSON.parse(responseText);
+            } catch {
+                result = { message: responseText };
+            }
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Invalid or expired OTP."
+                );
+            }
+
+
+            showForgotMessage(
+                result.message ||
+                "Password reset successfully. You can now log in.",
+                "success"
+            );
+
+
+            resetPasswordForm.reset();
+
+            sendOtpForm.reset();
+
+
+            // RETURN TO LOGIN PAGE
+            setTimeout(() => {
+
+                closeForgotPasswordModal();
+
+                document.getElementById("email").value = email;
+
+                document.getElementById("password").value = "";
+
+
+                loginMessage.textContent =
+                    "Password reset successfully. Please log in with your new password.";
+
+                loginMessage.className =
+                    "form-message success";
+
+            }, 1600);
+
+
+        } catch (error) {
+
+            console.error("Password reset error:", error);
+
+            showForgotMessage(
+                error.message ||
+                "Could not connect to the server.",
+                "error"
+            );
+
+        } finally {
+
+            resetPasswordButton.disabled = false;
+
+            resetPasswordButton.textContent = "Reset Password";
+        }
+
+    });
+
+    </script>
+
+</body>
+</html>

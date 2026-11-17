@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CampusFix Student Portal - Report campus maintenance issues securely.">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Report Issue | CampusFix</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="complaint.css">
+    <link rel="stylesheet" href="student-appearance.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- LOGIN CHECK -->
+    <script>
+        const studentEmail = localStorage.getItem("studentEmail");
+
+        if (!studentEmail || !studentEmail.trim()) {
+            window.location.replace("login.html");
+        }
+    </script>
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <div>
+                <h2>Campus<span>Fix</span></h2>
+                <small>Student Portal</small>
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <p class="menu-title">MENU</p>
+
+            <a href="dashboard.html" class="sidebar-link">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="complaint.html" class="sidebar-link active">
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span>Report Issue</span>
+            </a>
+
+            <a href="my-complaints.html" class="sidebar-link">
+                <i class="fa-solid fa-list-check"></i>
+                <span>My Complaints</span>
+            </a>
+
+
+            <p class="menu-title space-top">ACCOUNT</p>
+
+            <!-- FIXED MY PROFILE LINK -->
+
+            <a href="student-profile.html" class="sidebar-link">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <!-- SETTINGS -->
+
+            <a href="student-settings.html" class="sidebar-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+            <a href="login.html" class="logout-link" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <button
+                type="button"
+                class="mobile-menu"
+                id="menuBtn"
+                aria-label="Open navigation menu"
+                aria-controls="sidebar"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="topbar-title">
+
+                <h1>Report an Issue</h1>
+
+                <p>Help us make your campus better</p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar" id="loggedInStudentAvatar">
+                        NT
+                    </div>
+
+                    <div class="user-info">
+                        <strong id="loggedInStudentName">
+                            Student Name
+                        </strong>
+                        <small>Student</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <div class="complaint-page">
+
+            <!-- PAGE INTRO -->
+
+            <div class="complaint-intro">
+
+                <div>
+
+                    <span>NEW COMPLAINT</span>
+
+                    <h2>Tell us what needs to be fixed.</h2>
+
+                    <p>
+                        Provide accurate details so the administration
+                        can resolve your issue quickly.
+                    </p>
+
+                </div>
+
+                <div class="intro-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+
+            <form id="complaintForm" novalidate>
+
+                <!-- BASIC INFORMATION -->
+
+                <section class="form-card">
+
+                    <div class="form-card-heading">
+
+                        <div class="heading-icon">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+
+                        <div>
+                            <h3>Issue Information</h3>
+                            <p>Tell us about the problem</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <!-- TITLE -->
+
+                        <div class="form-field full">
+
+                            <label for="issueTitle">
+                                Issue Title <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="issueTitle"
+                                name="title"
+                                placeholder="Example: Classroom fan is not working"
+                                minlength="5"
+                                maxlength="80"
+                                autocomplete="off"
+                                pattern="(?=.*[A-Za-z])[A-Za-z0-9 ,.'()&amp;-]+"
+                                title="Use 5-80 characters. Letters, numbers, spaces and normal punctuation only."
+                                aria-describedby="titleHelp"
+                                required
+                            >
+
+                            <small id="titleHelp">
+                                5-80 characters. Avoid unsupported special symbols.
+                            </small>
+
+                        </div>
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="form-field">
+
+                            <label for="category">
+                                Category <span>*</span>
+                            </label>
+
+                            <div class="select-wrapper">
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                                <select id="category" name="category" required>
+
+                                    <option value="">Select category</option>
+
+                                    <option value="Maintenance">Maintenance</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="Cleanliness">Cleanliness</option>
+                                    <option value="Water Supply">Water Supply</option>
+                                    <option value="Internet">Internet / Wi-Fi</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Security">Security</option>
+                                    <option value="Other">Other</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <div class="form-field">
+
+                            <label for="location">
+                                Location <span>*</span>
+                            </label>
+
+                            <div class="input-with-icon">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    placeholder="Example: Block A, Room 204"
+                                    minlength="3"
+                                    maxlength="100"
+                                    autocomplete="off"
+                                    pattern="[A-Za-z0-9 ,/#.-]+"
+                                    title="Use letters, numbers, spaces, comma, slash, hyphen or dot."
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRIORITY -->
+
+                        <div class="form-field">
+
+                            <label>
+                                Priority <span>*</span>
+                            </label>
+
+                            <div class="priority-options">
+
+                                <label class="priority-option">
+
+                                    <input
+                                        type="radio"
+                                        name="priority"
+                                        value="Low"
+                                    >
+
+                                    <span class="priority low">Low</span>
+
+                                </label>
+
+
+                                <label class="priority-option">
+
+                                    <input
+                                        type="radio"
+                                        name="priority"
+                                        value="Medium"
+                                        checked
+                                    >
+
+                                    <span class="priority medium">Medium</span>
+
+                                </label>
+
+
+                                <label class="priority-option">
+
+                                    <input
+                                        type="radio"
+                                        name="priority"
+                                        value="High"
+                                    >
+
+                                    <span class="priority high">High</span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="form-field full">
+
+                            <label for="description">
+                                Description <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="description"
+                                name="description"
+                                rows="6"
+                                minlength="15"
+                                maxlength="500"
+                                placeholder="Describe the issue clearly. Include any useful details..."
+                                aria-describedby="descriptionHelp"
+                                required
+                            ></textarea>
+
+                            <div class="character-count">
+                                <span id="charCount">0</span>/500
+                            </div>
+
+                            <small id="descriptionHelp">
+                                Minimum 15 characters and maximum 500 characters.
+                                Do not enter only symbols.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= IMAGE UPLOAD ================= -->
+
+                <section class="form-card">
+
+                    <div class="form-card-heading">
+
+                        <div class="heading-icon">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+
+                        <div>
+                            <h3>Upload Evidence</h3>
+                            <p>Add an image to help us understand the issue</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="upload-area" id="uploadArea">
+
+                        <input
+                            type="file"
+                            id="issueImage"
+                            name="issueImage"
+                            accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                            hidden
+                        >
+
+                        <div class="upload-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+
+                        <h4>Drag &amp; Drop your image here</h4>
+
+                        <p>
+                            or
+                            <button
+                                type="button"
+                                id="browseBtn"
+                            >
+                                browse files
+                            </button>
+                        </p>
+
+                        <small>
+                            PNG, JPG or JPEG • Max 5MB
+                        </small>
+
+                    </div>
+
+
+                    <!-- IMAGE PREVIEW -->
+
+                    <div
+                        class="image-preview"
+                        id="imagePreview"
+                        aria-live="polite"
+                    ></div>
+
+                </section>
+
+
+                <!-- ================= SUBMIT ================= -->
+
+                <section class="form-card submit-card">
+
+                    <div class="anonymous-option">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="anonymous"
+                                name="anonymous"
+                            >
+
+                            <div>
+                                <strong>Submit anonymously</strong>
+
+                                <small>
+                                    Your name will not be displayed publicly.
+                                </small>
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="submit-actions">
+
+                        <a
+                            href="dashboard.html"
+                            class="cancel-btn"
+                        >
+                            Cancel
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="submit-complaint-btn"
+                        >
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Submit Complaint
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="complaintMessage"
+                        class="complaint-message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </section>
+
+            </form>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 CampusFix. All Rights Reserved.
+            </p>
+
+            <span>
+                Smart Campus Issue Management System
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="complaint.js" defer></script>
+    <script src="student-appearance.js"></script>
+
+    <script>
+        // LOGOUT
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("studentId");
+                localStorage.removeItem("studentName");
+                localStorage.removeItem("studentEmail");
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+
+/* GLOBAL STUDENT APPEARANCE */
+
+body.dark-mode {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .dashboard-body {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .dashboard-topbar,
+body.dark-mode .dashboard-stat-card,
+body.dark-mode .dashboard-section,
+body.dark-mode .quick-links-card,
+body.dark-mode .settings-card,
+body.dark-mode .settings-page-heading {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .sidebar-link,
+body.dark-mode .topbar-title h1,
+body.dark-mode .user-info strong,
+body.dark-mode .section-top h2,
+body.dark-mode .dashboard-stat-card h2,
+body.dark-mode .complaint-name strong,
+body.dark-mode .quick-link strong {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .dashboard-content,
+body.dark-mode .dashboard-main {
+    background: #0f172a !important;
+}
+
+body.dark-mode .complaints-table th {
+    background: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .complaints-table td {
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .help-box,
+body.dark-mode .quick-link {
+    background: #263449 !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+
+body.compact-layout .dashboard-stat-card,
+body.compact-layout .dashboard-section {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* ==========================================
+   REPORT ISSUE - DARK MODE
+========================================== */
+
+body.dark-mode .form-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .form-card-heading {
+    border-color: #334155 !important;
+}
+
+body.dark-mode .form-card-heading h3,
+body.dark-mode .form-field label,
+body.dark-mode .upload-area h4,
+body.dark-mode .preview-info strong,
+body.dark-mode .anonymous-option strong {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .form-field input,
+body.dark-mode .form-field textarea,
+body.dark-mode .select-wrapper,
+body.dark-mode .input-with-icon,
+body.dark-mode .select-wrapper select {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .upload-area {
+    background: #172337 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .upload-area:hover {
+    background: #263449 !important;
+}
+
+body.dark-mode .preview-item {
+    background: #172337 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .preview-info strong {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .cancel-btn {
+    background: #334155 !important;
+    border-color: #475569 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .anonymous-option small {
+    color: #94a3b8 !important;
+}
+
+
+/* ==========================================
+   MY COMPLAINTS - DARK MODE
+========================================== */
+
+body.dark-mode .complaints-header h2 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .summary-card,
+body.dark-mode .complaints-container {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .summary-card h3 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .complaints-toolbar {
+    border-color: #334155 !important;
+}
+
+body.dark-mode .search-box {
+    background: #0f172a !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .search-box input {
+    background: transparent !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .filter-btn {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .filter-btn:hover {
+    background: #334155 !important;
+}
+
+body.dark-mode .filter-btn.active {
+    background: #1e40af !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .complaint-item {
+    border-color: #334155 !important;
+}
+
+body.dark-mode .complaint-title-row h3,
+body.dark-mode .complaint-title-row p strong,
+body.dark-mode .no-results h3 {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .complaint-meta span,
+body.dark-mode .complaint-description {
+    color: #cbd5e1 !important;
+}
+
+
+/* ==========================================
+   COMPLAINT DETAILS MODAL - DARK MODE
+========================================== */
+
+body.dark-mode .complaint-modal {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .modal-header h2,
+body.dark-mode .modal-details strong,
+body.dark-mode .timeline-item strong {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .modal-details div {
+    background: #0f172a !important;
+}
+
+body.dark-mode .modal-status-row {
+    border-color: #334155 !important;
+}
+
+body.dark-mode .modal-close {
+    background: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .timeline-dot {
+    background: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .timeline-item.active .timeline-dot {
+    background: #1e40af !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .timeline-line {
+    background: #475569 !important;
+}
+
+
+/* ==========================================
+   COMMON DARK MODE TEXT AND INPUTS
+========================================== */
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .complaint-page,
+body.dark-mode .complaints-page {
+    color: #e2e8f0;
+}
+/* =========================================
+   MY COMPLAINTS - COMPLETE DARK MODE FIX
+========================================= */
+
+/* Main page */
+body.dark-mode .complaints-page {
+    color: #e2e8f0 !important;
+}
+
+/* Page header */
+body.dark-mode .complaints-header {
+    background: linear-gradient(120deg, #1e293b, #172554) !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .complaints-header h2 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .complaints-header p {
+    color: #cbd5e1 !important;
+}
+
+/* Summary cards */
+body.dark-mode .summary-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .summary-card span {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .summary-card h3 {
+    color: #f1f5f9 !important;
+}
+
+/* Complaints container */
+body.dark-mode .complaints-container {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+/* Search box */
+body.dark-mode .search-box input {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Filter buttons */
+body.dark-mode .filter-btn {
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .filter-btn.active {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+/* Complaint cards */
+body.dark-mode .complaint-card {
+    background: #172337 !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .complaint-card:hover {
+    border-color: #3b82f6 !important;
+}
+
+body.dark-mode .complaint-card-header h3 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .complaint-card p {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .complaint-card p strong {
+    color: #f1f5f9 !important;
+}
+
+/* View details button */
+body.dark-mode .view-details-btn {
+    background: #1e3a5f !important;
+    color: #93c5fd !important;
+    border-color: #334155 !important;
+}
+
+/* No results */
+body.dark-mode .no-results {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .no-results h3 {
+    color: #f1f5f9 !important;
+}
+
+/* Timeline */
+body.dark-mode .status-timeline {
+    background: transparent !important;
+}
+
+body.dark-mode .timeline-item {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .timeline-item strong {
+    color: inherit !important;
+}
+
+body.dark-mode .timeline-item.active {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .timeline-item.completed {
+    color: #4ade80 !important;
+}
+
+body.dark-mode .timeline-dot {
+    background: #1e293b !important;
+    border-color: #64748b !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .timeline-line {
+    background: #475569 !important;
+}
+
+/* Details modal */
+body.dark-mode #detailsModal .complaint-modal {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode #detailsModal .complaint-modal h2,
+body.dark-mode #detailsModal .complaint-modal h3,
+body.dark-mode #detailsModal .complaint-modal strong {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode #detailsModal .complaint-modal p,
+body.dark-mode #detailsModal .complaint-modal span {
+    color: #cbd5e1;
+}
